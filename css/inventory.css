@@ -1,0 +1,43 @@
+body{
+	background: grey;
+	width: 100%;
+
+}
+
+.navigation{
+	height: 20%;
+	border: 1px solid black;
+}
+
+.item-entry{
+	//display: table-row;
+}
+
+.table-cell{
+	display: table-cell;
+}
+
+
+.item-entry-field{
+	display: table-cell;
+	border: 1px solid black;
+	width: 200px;
+
+}
+
+.table-row{
+	display: table-row;
+}
+
+.item-overview{
+	width: 100%;
+	display: table;
+	table-layout: fixed;
+}
+
+.item-entry-header{
+	background-color: lightgrey;
+	display: table-cell;
+	border: 1px solid black;
+	padding: 5px;
+}
