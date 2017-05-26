@@ -4,7 +4,7 @@
  * The onPerform() - Actio  will receive it's father Action as reference.
  * @type {[Object]}
  */
-var Action = funtion(){
+var Action = function(){
     this._caster = null;
     this._target = null;
     this._cooldown = 0.0;
@@ -20,13 +20,13 @@ Action.prototype = {
         }
     },
     caster: function(entity){
-        if(enity){
+        if(entity){
             this._caster = entity;
             return this;
         }else{
             return this._caster;
         }
-    }
+    },
     /**
      * Sets the function which will executed if the the Action is activated
      * @param  {function} func Optional function,
@@ -57,3 +57,18 @@ Action.prototype = {
         this._onperform(this);
     }
 }
+
+var AttackAction = function(){
+    this.onPerform( action => {
+        var defender = action.target();
+        var attacker = action.caster();
+        var def = defender.stats.def()
+        var atk = defender.stats.atk();
+        var tmp = atk - def;
+        var muliplicator = tmp <= 0 ? 1.0 : tmp;
+        var dmg = 100 * muliplicator;
+        var result = defender.stats.hp() - dmg;
+        defender.stats.hp(result);
+    });
+}
+AttackAction.prototype = new Action();
