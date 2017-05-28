@@ -8,7 +8,7 @@ var Stats = function(){
 
 Stats.prototype = {
 	atk: function(atk){
-		if(atk){
+		if(typeof atk !== 'undefined'){
 			this._atk = atk;
 			return this;
 		}else{
@@ -16,7 +16,7 @@ Stats.prototype = {
 		}
 	},
 	def: function(def){
-		if(def){
+		if(typeof def !== 'undefined'){
 			this._def = def;
 			return this;
 		}else{
@@ -24,7 +24,7 @@ Stats.prototype = {
 		}
 	},
 	hp: function(hp){
-		if(hp){
+		if(typeof hp !== 'undefined'){
 			this._hp = hp;
 			return this;
 		}else{
@@ -32,7 +32,7 @@ Stats.prototype = {
 		}
 	},
 	critchance: function(chance){
-		if(chance){
+		if(typeof chance !== 'undefined'){
 			this._critchance = chance;
 			return this;
 		}else{
@@ -40,7 +40,7 @@ Stats.prototype = {
 		}
 	},
 	critboost: function(boost){
-		if(boost){
+		if(typeof boost !== 'undefined'){
 			this._critboost = boost;
 			return this;
 		}else{

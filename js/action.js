@@ -68,6 +68,7 @@ var AttackAction = function(){
         var muliplicator = tmp <= 0 ? 1.0 : tmp;
         var dmg = 100 * muliplicator;
         var result = defender.stats.hp() - dmg;
+        console.log(attacker.name() + " inflicted " + dmg + " damage to " + defender.name() + " has left " + result + " hp");
         defender.stats.hp(result);
     });
 }

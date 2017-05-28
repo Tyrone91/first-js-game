@@ -15,13 +15,26 @@
 		<script>
 			function main(){
 				var enemy = new Actor("test-enemy", "Endgegner").actionprovider(new BattleScript() );
+				enemy.stats.hp(200);
+
 				var player = new Player("player", "Tyrone").actionprovider(new PlayerInput() );
 				player.stats.hp(500);
 				player.stats.atk(10);
 				player.stats.def(50);
+
 				var battle = new Battle();
 				battle.addFriend(player);
 				battle.addEnemy(enemy);
+
+				var onFinish = (battle) => {
+					$('.test-input-bttn').remove();
+					console.log("-----------------------------------------");
+					console.log("Battle is over");
+					console.log("-----------------------------------------");
+				};
+				battle.onVictory(onFinish);
+				battle.onDefeat(onFinish);
+
 				battle.start();
 			}
 		</script>
