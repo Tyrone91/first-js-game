@@ -73,3 +73,14 @@ var AttackAction = function(){
     });
 }
 AttackAction.prototype = new Action();
+
+var HealAction = function(){
+    this.onPerform( action => {
+        var target = action.target();
+        var caster = action.caster()
+        var healHp = 50;
+        var hp = target.stats.hp();
+        target.stats.hp(hp + healHp);
+    });
+}
+HealAction.prototype = new Action();

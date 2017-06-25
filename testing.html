@@ -1,0 +1,96 @@
+<html>
+	<head>
+		<meta charset="utf-8"/>
+
+		<link href="css/ui.css" type="text/css" rel="stylesheet"/>
+		<link href="css/battle-view.css" type="text/css" rel="stylesheet"/>
+
+		<script src="js/JQuery.js"></script>
+		<script src="js/stats.js"></script>
+		<script src="js/entity.js"></script>
+		<script src="js/actor.js"></script>
+		<script src="js/actionprovider.js"></script>
+		<script src="js/player.js"></script>
+		<script src="js/inventory.js"></script>
+		<script src="js/battle.js"></script>
+		<script src="js/ai.js"></script>
+		<script src="js/action.js"></script>
+		<script src="js/point.js"></script>
+		<script src="js/map.js"></script>
+		<script src="js/ui.js"></script>
+		<script src="js/util.js"></script>
+		<script src="js/game.js"></script>
+		<script src="js/event.js"></script>
+
+		<script>
+			function main(){
+				/*
+				var player = new Player('player', 'tyrone');
+				var playerPosition = new Point(0,0);
+				var m = new Map(10,10);
+				m.fillMap();
+				m.getPosition(3,4);
+				var view = new MapView(m);
+				view.drawTo($('body'));
+				view.addKeyObserver({
+					keyDown: function(view){
+						if(!m.inBounds(playerPosition.x, playerPosition.y + 1) ){
+							return;
+						}
+						m.leave(playerPosition, player);
+						playerPosition.y++;
+						m.enter(playerPosition, player);
+						console.log("playerPosition: " + playerPosition);
+					},
+					keyUp: function(){
+						if(!m.inBounds(playerPosition.x, playerPosition.y - 1) ){
+							return;
+						}
+						m.leave(playerPosition, player);
+						playerPosition.y--;
+						m.enter(playerPosition, player);
+						console.log("playerPosition: " + playerPosition);
+					},
+					keyLeft: function(){
+						if(!m.inBounds(playerPosition.x -1, playerPosition.y) ){
+							return;
+						}
+						m.leave(playerPosition, player);
+						playerPosition.x--;
+						m.enter(playerPosition, player);
+						console.log("playerPosition: " + playerPosition);
+					},
+					keyRight: function(){
+						if(!m.inBounds(playerPosition.x + 1, playerPosition.y) ){
+							return;
+						}
+						m.leave(playerPosition, player);
+						playerPosition.x++;
+						m.enter(playerPosition, player);
+						console.log("playerPosition: " + playerPosition);
+					}
+				});
+				m.enter(playerPosition, player);
+				*/
+
+				var game = new Game();
+				game.player( new Player('player', 'Tyrone') );
+				game.player()
+				.addPossibleAction(new HealAction())
+				.addPossibleAction(new AttackAction());
+				game.player().stats.hp(500).atk(200).def(250);
+				var enemy01 = new Actor('enemy01', "someguy");
+				enemy01.actionprovider(new BattleScript());
+				enemy01.stats.hp(500).atk(25).def(50);
+				var enemies = [enemy01];
+				var allies = [game.player()];
+				game.startBattle(allies, enemies, (battle) => battle.start() );
+			}
+		</script>
+	</head>
+	<body onload="main()">
+		<div class="test-user-input">
+
+		</div>
+	</body>
+</html>

@@ -1,0 +1,18 @@
+.map-view-ui .map-entry{
+    display: table-cell;
+    background: green;
+    border: 1px solid;
+}
+.map-view-ui .map-entry-row{
+    display: table-row;
+}
+.map-view-ui{
+    display: table;
+    background: grey;
+    width: 100vw;
+    height: 100vh;
+}
+
+.map-view-ui .player-is-here{
+    background: gold;
+}

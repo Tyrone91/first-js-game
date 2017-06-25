@@ -1,0 +1,7 @@
+{
+    "name" : "Tyrone",
+    "id": "player",
+    "atk" : 5,
+    "def" : 5,
+    "hp" : 5
+}

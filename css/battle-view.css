@@ -1,0 +1,10 @@
+.battle-view .actor-entry{
+    width: auto;
+    padding: 10px;
+    border: 1px solid;
+}
+.player-overview, .enemy-overview{
+    display: flex;
+    table-layout: fixed;
+    border: 1px solid red;
+}
